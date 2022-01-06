@@ -46,6 +46,35 @@ let connection_functions = {
     return p;
   },
 
+  updateById: (id, eng_word, fin_word) => {
+    function promFunction(resolve, reject) {
+      pool.query(
+        "UPDATE words SET english_word = " +
+          eng_word +
+          ", finnish_word = " +
+          fin_word +
+          "WHERE id = " +
+          id,
+        (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(
+              "Word with id = " +
+                id +
+                " updated to " +
+                eng_word +
+                "/" +
+                fin_word
+            );
+          }
+        }
+      );
+    }
+    let p = new Promise(promFunction);
+    return p;
+  },
+
   save: (word) => {
     function promFunction(resolve, reject) {
       pool.query(

@@ -22,7 +22,7 @@ app.get("/words", (req, res) => {
   find();
 });
 
-app.delete("/locations/:id([0-9]+)", (req, res) => {
+app.delete("/words/:id([0-9]+)", (req, res) => {
   let id = req.params.id;
 
   const deleteFromList = async () => {
@@ -35,6 +35,23 @@ app.delete("/locations/:id([0-9]+)", (req, res) => {
   };
 
   deleteFromList();
+});
+
+app.put("/words/:id([0-9]+)", (req, res) => {
+  let id = req.params.id;
+  let eng_word = '"' + req.body.english_word + '"';
+  let fin_word = '"' + req.body.finnish_word + '"';
+
+  const update = async () => {
+    try {
+      let result = await connection.updateById(id, eng_word, fin_word);
+      res.status(201).send(result);
+    } catch (err) {
+      res.status(400).send("Error, try again");
+    }
+  };
+
+  update();
 });
 
 app.post("/words", (req, res) => {
