@@ -31,6 +31,37 @@ let connection_functions = {
     let p = new Promise(promFunction);
     return p;
   },
+
+  deleteById: (id) => {
+    function promFunction(resolve, reject) {
+      pool.query("DELETE FROM words WHERE id = " + id, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve("Deleted a word successfully ");
+        }
+      });
+    }
+    let p = new Promise(promFunction);
+    return p;
+  },
+
+  save: (word) => {
+    function promFunction(resolve, reject) {
+      pool.query(
+        "INSERT INTO words (english_word, finnish_word) VALUES (" + word + ");",
+        (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve("Added a new word successfully");
+          }
+        }
+      );
+    }
+    let p = new Promise(promFunction);
+    return p;
+  },
 };
 
 module.exports = connection_functions;

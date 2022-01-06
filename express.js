@@ -22,6 +22,37 @@ app.get("/words", (req, res) => {
   find();
 });
 
+app.delete("/locations/:id([0-9]+)", (req, res) => {
+  let id = req.params.id;
+
+  const deleteFromList = async () => {
+    try {
+      let result = await connection.deleteById(id);
+      res.status(204).send(result);
+    } catch (err) {
+      res.status(404).send(err);
+    }
+  };
+
+  deleteFromList();
+});
+
+app.post("/words", (req, res) => {
+  let eng_word = '"' + req.body.english_word + '"';
+  let fin_word = '"' + req.body.finnish_word + '"';
+
+  const save = async () => {
+    try {
+      let result = await connection.save([eng_word + ", " + fin_word]);
+      res.status(201).send(result);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  };
+
+  save();
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
