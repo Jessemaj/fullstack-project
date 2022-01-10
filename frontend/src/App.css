@@ -1,0 +1,53 @@
+nav {
+  display: flex;
+  background-color: rgb(21, 83, 191);
+  margin-bottom: 10px;
+}
+
+body {
+  background-color: rgb(214, 214, 214);
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 3vh;
+}
+.navbar li {
+  width: 100%;
+  text-align: center;
+}
+
+li a {
+  padding: 50px;
+  font-size: 30px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+li a:hover {
+  color: rgb(223, 120, 52);
+}
+
+.excercise {
+  max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(21, 83, 191);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(223, 120, 52);
+  box-shadow: 0 4px 8px 0 rgba(5, 138, 253, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+}
+
+.englishWord {
+  padding-left: 50px;
+}
+
+.inputField {
+  padding-right: 50px;
+  padding-left: 30px;
+}
