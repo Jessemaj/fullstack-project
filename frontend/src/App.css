@@ -1,7 +1,6 @@
 nav {
   display: flex;
   background-color: rgb(21, 83, 191);
-  margin-bottom: 10px;
 }
 
 body {
@@ -38,6 +37,7 @@ li a:hover {
 .excercise,
 .adminWordsList {
   width: 30%;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(21, 83, 191);
@@ -76,10 +76,13 @@ li a:hover {
   margin-left: 5px;
 }
 
-.checkScore {
+.checkScore,
+.retry {
   position: relative;
   top: 2px;
+  text-align: center;
   margin-left: 150px;
+  width: 100px;
 }
 
 .finnishWord {
@@ -94,6 +97,10 @@ li a:hover {
   margin: auto;
   width: 50%;
   padding: 10px;
+  background-color: rgb(21, 83, 191);
+  color: white;
+  margin-top: 10px;
+  border: 2px solid rgb(223, 120, 52);
 }
 
 .addWord .inputField {

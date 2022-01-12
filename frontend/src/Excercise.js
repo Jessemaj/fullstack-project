@@ -7,11 +7,17 @@ const Excercise = () => {
   const [userScore, setUserScore] = useState([]);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showInput, setShowInput] = useState(true);
+  const [showRetry, setShowRetry] = useState(false);
+  const [showCheckScore, setShowCheckScore] = useState(true);
 
   const getWords = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => updateWords(data));
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -29,6 +35,8 @@ const Excercise = () => {
       setUserScore("Score: " + scoreCounter);
       setShowCorrectAnswer(true);
       setShowInput(false);
+      setShowRetry(true);
+      setShowCheckScore(false);
     }
   };
 
@@ -61,9 +69,16 @@ const Excercise = () => {
             <p id="score">{userScore}</p>
           </td>
           <td>
-            <button className="checkScore button" onClick={checkScore}>
-              Check score
-            </button>
+            {showCheckScore ? (
+              <button className="checkScore button" onClick={checkScore}>
+                Check score
+              </button>
+            ) : null}
+            {showRetry ? (
+              <button className="retry button" onClick={refreshPage}>
+                Retry
+              </button>
+            ) : null}
           </td>
         </tr>
       </table>
