@@ -4,7 +4,7 @@ const Excercise = () => {
   const url = "http://localhost:8080/words";
   const [words, updateWords] = useState([]);
   const [answer] = useState([]);
-  const [userScore, setUserScore] = useState(0);
+  const [userScore, setUserScore] = useState([]);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showInput, setShowInput] = useState(true);
 
@@ -24,8 +24,9 @@ const Excercise = () => {
     for (let i = 0; i < words.length; i++) {
       if (answer[i] === words[i].finnish_word) {
         scoreCounter += 1;
+        words[i].finnish_word += "  CORRECT!";
       }
-      setUserScore(scoreCounter);
+      setUserScore("Score: " + scoreCounter);
       setShowCorrectAnswer(true);
       setShowInput(false);
     }
@@ -43,7 +44,9 @@ const Excercise = () => {
                 <td className="inputField">
                   <input
                     type="text"
-                    onChange={(obj) => (answer[index] = obj.target.value)}
+                    onChange={(obj) =>
+                      (answer[index] = obj.target.value.toLowerCase())
+                    }
                   />
                 </td>
               ) : null}
@@ -55,10 +58,10 @@ const Excercise = () => {
         })}
         <tr>
           <td>
-            <p id="score">Score: {userScore}</p>
+            <p id="score">{userScore}</p>
           </td>
           <td>
-            <button id="checkScore" onClick={checkScore}>
+            <button className="checkScore button" onClick={checkScore}>
               Check score
             </button>
           </td>
