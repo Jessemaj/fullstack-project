@@ -4,7 +4,8 @@ const port = 8080;
 const cors = require("cors");
 const connection = require("./connection_functions");
 require("dotenv").config();
-express.static("public");
+
+app.use(express.static("frontend/build"));
 
 app.use(express.json());
 
