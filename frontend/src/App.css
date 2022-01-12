@@ -8,6 +8,10 @@ body {
   background-color: rgb(214, 214, 214);
 }
 
+h5 {
+  text-align: center;
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -31,7 +35,8 @@ li a:hover {
   color: rgb(223, 120, 52);
 }
 
-.excercise {
+.excercise,
+.adminWordsList {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
@@ -41,8 +46,12 @@ li a:hover {
   box-shadow: 0 4px 8px 0 rgba(5, 138, 253, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
+  border-spacing: 2px;
 }
 
+.tableRow {
+  border: 1px solid black;
+}
 .englishWord {
   padding-left: 50px;
 }
@@ -52,14 +61,25 @@ li a:hover {
   padding-left: 30px;
 }
 
-#checkScore {
-  position: relative;
-  top: 2px;
-  margin-left: 150px;
+.button {
   font-weight: bold;
   background-color: white;
   border: 3px solid rgb(223, 120, 52);
   cursor: pointer;
+}
+
+.button:active {
+  background-color: orange;
+}
+
+.adminWordsList .button {
+  margin-left: 5px;
+}
+
+.checkScore {
+  position: relative;
+  top: 2px;
+  margin-left: 150px;
 }
 
 .finnishWord {
@@ -68,4 +88,14 @@ li a:hover {
 
 #score {
   font-size: 20px;
+}
+
+.addWord {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.addWord .inputField {
+  margin: 5px;
 }
