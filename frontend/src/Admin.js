@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Admin = () => {
   const url = "http://localhost:8080/words";
@@ -34,6 +35,10 @@ const Admin = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [true]);
 
+  const deleteTodo = (id) => {
+    axios.delete(url + "/" + id).then(getWords());
+  };
+
   return (
     <>
       <div className="addWord">
@@ -66,7 +71,12 @@ const Admin = () => {
 
               <td className="finnishWord">{wordValues.finnish_word}</td>
               <button className="button">Edit</button>
-              <button className="button">Delete</button>
+              <button
+                className="button"
+                onClick={deleteTodo.bind(this, wordValues.id)}
+              >
+                Delete
+              </button>
             </tr>
           );
         })}
