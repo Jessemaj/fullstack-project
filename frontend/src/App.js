@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Admin from "./Admin";
 import EditWord from "./EditWord";
 
+/** Navbar stays always on the top while other pages change below it */
 function App() {
   return (
     <BrowserRouter>

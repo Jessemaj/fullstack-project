@@ -6,11 +6,12 @@ import axios from "axios";
 const EditWord = () => {
   const { id } = useParams();
   const url = "http://localhost:8080/words";
+  /** New values of words set by user stores in state*/
   const [englishWord, setEnglishWord] = useState([]);
   const [finnishWord, setFinnishWord] = useState([]);
   const [word, setWord] = useState([]);
   const [message, setMessage] = useState([]);
-
+  /** Get all word pairs from the database*/
   const getWord = () => {
     axios.get(url + "/" + id).then((response) => {
       setWord(response.data);
@@ -22,6 +23,7 @@ const EditWord = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [true]);
 
+  /** Used to update word in the database, used with 'Update' button */
   const updateWord = () => {
     var wordInfo = {
       english_word: englishWord,
@@ -29,7 +31,7 @@ const EditWord = () => {
     };
     axios.put(url + "/" + id, wordInfo).then(setMessage("Update successful"));
   };
-
+  /**Returns a new screen where user can write new values for words.*/
   return (
     <>
       <h3>Edit task</h3>

@@ -4,10 +4,13 @@ import axios from "axios";
 
 const Admin = () => {
   const url = "http://localhost:8080/words";
+  /**Words from fetching words stored in words */
   const [words, updateWords] = useState([]);
+  /**New words from user to be saved stored in these states */
   const [newEnglishWord, setNewEnglishWord] = useState([]);
   const [newFinnishWord, setNewFinnishWord] = useState([]);
 
+  /**Save a new word pair to the database, after saving update words, used with 'Save' button*/
   const save = () => {
     axios
       .post(url, {
@@ -18,22 +21,23 @@ const Admin = () => {
         getWords();
       });
   };
-
+  /** Get all word pairs from the database*/
   const getWords = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => updateWords(data));
   };
-
+  /** When loading the page get words*/
   useEffect(() => {
     getWords();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [true]);
-
+  /**Delete word from database, used with 'Delete' button */
   const deleteWord = (id) => {
     axios.delete(url + "/" + id).then(getWords());
   };
 
+  /**Returns a list of the words in the database. User can delete and edit them. */
   return (
     <>
       <div className="addWord">
@@ -42,14 +46,14 @@ const Admin = () => {
           <input
             type="text"
             className="inputField"
-            placeholder="Type english word here"
+            placeholder="Type English word here"
             onChange={(obj) => setNewEnglishWord(obj.target.value)}
           />
 
           <input
             type="text"
             className="inputField"
-            placeholder="Type finnish word here"
+            placeholder="Type Finnish word here"
             onChange={(obj) => setNewFinnishWord(obj.target.value)}
           />
         </div>
