@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Admin = () => {
@@ -70,9 +71,11 @@ const Admin = () => {
               <td className="englishWord">{wordValues.english_word}</td>
 
               <td className="finnishWord">{wordValues.finnish_word}</td>
-              <button className="button">Edit</button>
+              <button className="editButton button">
+                <Link to={`/${wordValues.id}/editword`}>Edit</Link>
+              </button>
               <button
-                className="button"
+                className="deleteButton button"
                 onClick={deleteTodo.bind(this, wordValues.id)}
               >
                 Delete

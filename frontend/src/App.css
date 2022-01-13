@@ -7,7 +7,8 @@ body {
   background-color: rgb(214, 214, 214);
 }
 
-h5 {
+h5,
+h3 {
   text-align: center;
 }
 
@@ -68,6 +69,24 @@ li a:hover {
   cursor: pointer;
 }
 
+.editButton,
+.deleteButton {
+  width: 60px;
+}
+
+.editButton:hover {
+  background-color: orange;
+}
+
+.deleteButton:hover {
+  background-color: red;
+  border: 3px solid black;
+}
+
+.button a {
+  text-decoration: none;
+  color: black;
+}
 .button:active {
   background-color: orange;
 }
@@ -95,7 +114,7 @@ li a:hover {
 
 .addWord {
   margin: auto;
-  width: 50%;
+  max-width: 50%;
   padding: 10px;
   background-color: rgb(21, 83, 191);
   color: white;
@@ -105,4 +124,24 @@ li a:hover {
 
 .addWord .inputField {
   margin: 5px;
+  max-width: 65%;
+}
+
+#editTask {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.updateButton {
+  margin-top: 10px;
+  position: relative;
+  left: 90px;
+}
+.updateButton:active {
+  background-color: blue;
+  color: white;
+}
+
+#message {
+  text-align: center;
 }

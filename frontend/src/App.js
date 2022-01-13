@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Excercise from "./Excercise";
 import Navbar from "./Navbar";
 import Admin from "./Admin";
+import EditWord from "./EditWord";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <>
             <Route path="/" element={<Excercise />} />
+            <Route path="/:id/editword" element={<EditWord />} />
             <Route path="/admin" element={<Admin />} />
           </>
         </Routes>
