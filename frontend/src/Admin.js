@@ -42,19 +42,21 @@ const Admin = () => {
     <>
       <div className="addWord">
         <h5>Add a word pair to the excercise here</h5>
-        <input
-          type="text"
-          className="inputField"
-          placeholder="Type english word here"
-          onChange={(obj) => setNewEnglishWord(obj.target.value)}
-        />
+        <div className="addWordInputs">
+          <input
+            type="text"
+            className="inputField"
+            placeholder="Type english word here"
+            onChange={(obj) => setNewEnglishWord(obj.target.value)}
+          />
 
-        <input
-          type="text"
-          className="inputField"
-          placeholder="Type finnish word here"
-          onChange={(obj) => setNewFinnishWord(obj.target.value)}
-        />
+          <input
+            type="text"
+            className="inputField"
+            placeholder="Type finnish word here"
+            onChange={(obj) => setNewFinnishWord(obj.target.value)}
+          />
+        </div>
 
         <button className="button" onClick={save}>
           Save

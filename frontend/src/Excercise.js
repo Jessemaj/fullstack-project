@@ -42,6 +42,7 @@ const Excercise = () => {
 
   return (
     <>
+      <h3>Try to get as many words right as you can</h3>
       <table className="excercise">
         {words.map((wordValues, index) => {
           return (

@@ -37,7 +37,7 @@ li a:hover {
 
 .excercise,
 .adminWordsList {
-  width: 30%;
+  max-width: 30%;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -48,6 +48,11 @@ li a:hover {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
   border-spacing: 2px;
+}
+
+.adminWordsList {
+  padding-right: 40px;
+  border-spacing: 5px;
 }
 
 .tableRow {
@@ -114,7 +119,7 @@ li a:hover {
 
 .addWord {
   margin: auto;
-  max-width: 50%;
+  width: 70%;
   padding: 10px;
   background-color: rgb(21, 83, 191);
   color: white;
@@ -125,6 +130,11 @@ li a:hover {
 .addWord .inputField {
   margin: 5px;
   max-width: 65%;
+}
+
+.addWordInputs {
+  text-align: center;
+  margin-right: 20px;
 }
 
 #editTask {
