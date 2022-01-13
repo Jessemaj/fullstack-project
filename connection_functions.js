@@ -32,6 +32,21 @@ let connection_functions = {
     return p;
   },
 
+  findById: (id) => {
+    function promFunction(resolve, reject) {
+      pool.query("SELECT * FROM words WHERE id = " + id, (err, word) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(word);
+        }
+      });
+    }
+
+    let p = new Promise(promFunction);
+    return p;
+  },
+
   deleteById: (id) => {
     function promFunction(resolve, reject) {
       pool.query("DELETE FROM words WHERE id = " + id, (err) => {

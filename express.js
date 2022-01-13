@@ -23,6 +23,20 @@ app.get("/words", (req, res) => {
   find();
 });
 
+app.get("/words/:id([0-9]+)", (req, res) => {
+  let id = req.params.id;
+
+  const findWord = async () => {
+    try {
+      let word = await connection.findById(id);
+      res.status(200).send(word);
+    } catch (err) {
+      res.status(404).send("Error, results not found");
+    }
+  };
+  findWord();
+});
+
 app.delete("/words/:id([0-9]+)", (req, res) => {
   let id = req.params.id;
 
