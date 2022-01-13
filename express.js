@@ -5,12 +5,14 @@ const cors = require("cors");
 const connection = require("./connection_functions");
 require("dotenv").config();
 
+/** Middleware to allow the backend use frontend build*/
 app.use(express.static("frontend/build"));
-
+/** Middleware to parse requests with JSON */
 app.use(express.json());
-
+/** Middleware to allow fetching */
 app.use(cors());
 
+/**Used with GET request, returns all word pairs from the database */
 app.get("/words", (req, res) => {
   const find = async () => {
     try {
@@ -23,6 +25,7 @@ app.get("/words", (req, res) => {
   find();
 });
 
+/**Used with GET request, returns one word pair with the selected id */
 app.get("/words/:id([0-9]+)", (req, res) => {
   let id = req.params.id;
 
@@ -37,6 +40,7 @@ app.get("/words/:id([0-9]+)", (req, res) => {
   findWord();
 });
 
+/**Used with DELETE request, deletes one word pair with the selected id */
 app.delete("/words/:id([0-9]+)", (req, res) => {
   let id = req.params.id;
 
@@ -52,6 +56,7 @@ app.delete("/words/:id([0-9]+)", (req, res) => {
   deleteFromList();
 });
 
+/**Used with PUT request, updates values to the item with the selected id */
 app.put("/words/:id([0-9]+)", (req, res) => {
   let id = req.params.id;
   let eng_word = '"' + req.body.english_word + '"';
@@ -69,6 +74,7 @@ app.put("/words/:id([0-9]+)", (req, res) => {
   update();
 });
 
+/**Used with POST request, creates a new word pair into the table. */
 app.post("/words", (req, res) => {
   let eng_word = '"' + req.body.english_word + '"';
   let fin_word = '"' + req.body.finnish_word + '"';
@@ -84,7 +90,7 @@ app.post("/words", (req, res) => {
 
   save();
 });
-
+/**Defining the port to use the express */
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

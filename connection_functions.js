@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 require("dotenv").config();
 
+/**Connection pool and options to create the database connection */
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: process.env.DB_HOST,
@@ -9,6 +10,7 @@ const pool = mysql.createPool({
   database: process.env.DB_DB,
 });
 
+/**Connection functions declared */
 let connection_functions = {
   connect: () => {
     pool.connect();
@@ -17,6 +19,7 @@ let connection_functions = {
     pool.end();
   },
 
+  /**Select all rows and items from the words table */
   findAll: () => {
     function promFunction(resolve, reject) {
       pool.query("SELECT * FROM words;", (err, words) => {
@@ -31,7 +34,7 @@ let connection_functions = {
     let p = new Promise(promFunction);
     return p;
   },
-
+  /**Select one row by an id, returns only one id */
   findById: (id) => {
     function promFunction(resolve, reject) {
       pool.query("SELECT * FROM words WHERE id = " + id, (err, word) => {
@@ -46,7 +49,7 @@ let connection_functions = {
     let p = new Promise(promFunction);
     return p;
   },
-
+  /**Delete one row from table by id */
   deleteById: (id) => {
     function promFunction(resolve, reject) {
       pool.query("DELETE FROM words WHERE id = " + id, (err) => {
@@ -60,7 +63,7 @@ let connection_functions = {
     let p = new Promise(promFunction);
     return p;
   },
-
+  /**Update one row with new values */
   updateById: (id, eng_word, fin_word) => {
     function promFunction(resolve, reject) {
       pool.query(
@@ -89,7 +92,7 @@ let connection_functions = {
     let p = new Promise(promFunction);
     return p;
   },
-
+  /**Save new row to the table with two words */
   save: (word) => {
     function promFunction(resolve, reject) {
       pool.query(
