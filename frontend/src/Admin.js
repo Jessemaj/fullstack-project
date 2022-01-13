@@ -9,18 +9,14 @@ const Admin = () => {
   const [newFinnishWord, setNewFinnishWord] = useState([]);
 
   const save = () => {
-    var wordInfo = {
-      english_word: newEnglishWord,
-      finnish_word: newFinnishWord,
-    };
-
-    fetch("http://localhost:8080/words/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(wordInfo),
-    });
-
-    getWords();
+    axios
+      .post(url, {
+        english_word: newEnglishWord,
+        finnish_word: newFinnishWord,
+      })
+      .then(() => {
+        getWords();
+      });
   };
 
   const getWords = () => {
@@ -34,7 +30,7 @@ const Admin = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [true]);
 
-  const deleteTodo = (id) => {
+  const deleteWord = (id) => {
     axios.delete(url + "/" + id).then(getWords());
   };
 
@@ -76,7 +72,7 @@ const Admin = () => {
               </button>
               <button
                 className="deleteButton button"
-                onClick={deleteTodo.bind(this, wordValues.id)}
+                onClick={deleteWord.bind(this, wordValues.id)}
               >
                 Delete
               </button>
