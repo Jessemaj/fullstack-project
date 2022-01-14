@@ -14,5 +14,8 @@ You can create the database with this :
   PRIMARY KEY (`id`)
 ) 
 
+# To start the app locally...
+The express.js uses files in frontend/build so build has to be created with "npm run build" in frontend folder. After that the app can be started with "node express.js".
+
 # Screencast
 https://youtu.be/lUes2u4FXtU
