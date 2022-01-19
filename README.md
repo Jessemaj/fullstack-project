@@ -15,7 +15,15 @@ You can create the database with this :
 ) 
 
 # To start the app locally...
-The express.js uses files in frontend/build so build has to be created with "npm run build" in frontend folder. After that the app can be started with "node express.js".
+git clone https://github.com/Jessemaj/fullstack-project.git
+.env file --> fullstack-project
+cd fullstack-project
+npm install
+cd frontend
+cd npm install
+npm run build
+cd .. 
+node express.js
 
-# Screencast
-https://youtu.be/lUes2u4FXtU
+# Demo video
+https://youtu.be/rcLhvof8tnY
