@@ -15,15 +15,15 @@ You can create the database with this :
 ) 
 
 # To start the app locally...
-git clone https://github.com/Jessemaj/fullstack-project.git
-.env file --> fullstack-project
-cd fullstack-project
-npm install
-cd frontend
-cd npm install
-npm run build
-cd .. 
-node express.js
+git clone https://github.com/Jessemaj/fullstack-project.git <br />
+.env file --> fullstack-project <br />
+cd fullstack-project <br />
+npm install <br />
+cd frontend <br />
+cd npm install <br />
+npm run build <br />
+cd .. <br />
+node express.js <br />
 
 # Demo video
 https://youtu.be/rcLhvof8tnY
